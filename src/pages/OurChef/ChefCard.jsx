@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaThumbsUp } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const ChefCard = ({chef}) => {
-    console.log(chef);
     const {id, chefPicture,chefName, yearsOfExperience, numberOfRecipes, likes} = chef;
     return (
         <div className='mx-auto'>
@@ -14,7 +14,7 @@ const ChefCard = ({chef}) => {
     <p>Recipes: {numberOfRecipes}</p>
     <p className='flex items-center gap-3'><span><FaThumbsUp></FaThumbsUp></span><span>{likes}</span></p>
     <div className="card-actions justify-end">
-      <button className="btn  bg-[#C59D5F]">View Recipe</button>
+      <Link to={`/all-chef/${id}`}  className="btn  bg-[#C59D5F]">View Recipe</Link>
     </div>
   </div>
 </div>
