@@ -15,7 +15,7 @@ const ChefDetailsCard = ({card}) => {
             <p>{cookingMethod}</p>
             <p>Ratings: <span className="text-orange-400">{rating}</span></p>
           <div className="card-actions justify-end">
-            <button className="btn">Buy Now</button>
+            <button className="btn">Add to Favorite</button>
           </div>
         </div>
       </div>
