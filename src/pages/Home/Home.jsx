@@ -1,10 +1,19 @@
 import React from 'react';
 
+
 const Home = () => {
     return (
-        <div>
-            <h3>This is Home page</h3>
+       <div>
+         <div className='relative bg-black'>
+            <img className='w-full  bg-cover object-cover opacity-30' src="https://images.unsplash.com/photo-1457666134378-6b77915bd5f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1034&q=80" alt="" />
+            <div className='absolute top-0 md:top-[30%] text-white '>
+                <h2 className='text-5xl md:text-7xl font-bold text-center p-4'>Best Ever <span className='text-[#C59D5F]'>Food Service</span></h2>
+                <p className='md:px-36 mb-4'>Lasagna - An Italian dish made of stacked layers of wide pasta, ground meat, tomato sauce, and cheese, baked until golden and bubbly. Satisfying, hearty, and perfect for a cozy family dinner.</p>
+                <button className='btn bg-[#C59D5F]'>Subscribe</button>
+            </div>
         </div>
+
+       </div>
     );
 };
 

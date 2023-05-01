@@ -1,9 +1,29 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div>
-            <h3>This is header page</h3>
+            <div className="navbar bg-base-100">
+  <div className="flex-1">
+    <a className="btn btn-ghost normal-case text-xl">Flavor Frenzy</a>
+  </div>
+  <div className="flex-none gap-2">
+    <div>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/' className='mx-2'>Blog</NavLink>
+        <NavLink to='/login'><button className='btn bg-[#C59D5F] border-none'>Login</button></NavLink>
+    </div>
+    <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src="" />
+        </div>
+      </label>
+   
+    </div>
+  </div>
+</div>
         </div>
     );
 };
