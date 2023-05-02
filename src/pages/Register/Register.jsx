@@ -8,7 +8,7 @@ const Register = () => {
   const [error, setError ]= useState('');
   const [success,setSuccess] = useState('');
 
-  const {handleRegister} = useContext(AuthContext);
+  const {handleRegister , GoogleSignIn, githubSignIn} = useContext(AuthContext);
 
   const handleRegisterForm = (event)=>{
     event.preventDefault();
@@ -51,6 +51,27 @@ const Register = () => {
       console.log(error);
     })
   }
+  const handleGoogleSignIn = ()=>{
+    GoogleSignIn()
+    .then(result =>{
+     const loggedUser = result.user;
+     console.log(loggedUser); 
+    })
+    .catch(error =>{
+      setError(error.message);
+    })
+  }
+  const handleGithubSignIn = ()=>{
+    githubSignIn()
+    .then(result =>{
+      const loggedUser = result.user ;
+      console.log(loggedUser);
+    })
+    .catch(error =>{
+      setError(error.message);
+      console.log(error);
+    })
+  }
   
     return (
         <div className=''>
@@ -71,8 +92,8 @@ const Register = () => {
             </form>
             <p className='text-white text-center my-3'><span>Already have an account?</span> 
              <Link to="/login" className='text-blue-600 ml-2'>Please Login</Link></p>
-             <button className='btn w-full mb-3 btn-success '><FaGoogle></FaGoogle><span className='ms-2'>Register with Google</span></button>
-             <button className='btn w-full btn-success'><FaGithub></FaGithub><span className='ms-2'>Register with Github</span></button>
+             <button onClick={handleGoogleSignIn} className='btn w-full mb-3 btn-success '><FaGoogle></FaGoogle><span className='ms-2'>Register with Google</span></button>
+             <button onClick={handleGithubSignIn} className='btn w-full btn-success'><FaGithub></FaGithub><span className='ms-2'>Register with Github</span></button>
           </div>
         </div>
     );

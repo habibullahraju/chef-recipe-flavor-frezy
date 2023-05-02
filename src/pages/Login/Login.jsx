@@ -5,7 +5,7 @@ import { AuthContext } from '../../provider/authProvider/authProvider';
 
 const Login = () => {
   const [error, setError] = useState('');
-  const {handleLogin} = useContext(AuthContext);
+  const {handleLogin, GoogleSignIn, githubSignIn} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -27,6 +27,27 @@ const Login = () => {
     })
     form.reset()
   }
+  const handleGoogleSignIn = ()=>{
+    GoogleSignIn()
+    .then(result =>{
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    })
+    .catch(error =>{
+      setError(error.message);
+    })
+  }
+  const handleGithubSignIn = ()=>{
+    githubSignIn()
+    .then(result =>{
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    })
+    .catch(error =>{
+      setError(error.message);
+      console.log(error);
+    })
+  }
 
     return (
         <div>
@@ -45,8 +66,8 @@ const Login = () => {
             </form>
             <p className='text-white text-center my-3'><span>Are you new here?</span> 
              <Link to="/register" className='text-blue-600 ml-2'>Please Register</Link></p>
-             <button className='btn w-full mb-3 btn-success '><FaGoogle></FaGoogle><span className='ms-2'>Register with Google</span></button>
-             <button className='btn w-full btn-success'><FaGithub></FaGithub><span className='ms-2'>Register with Github</span></button>
+             <button onClick={handleGoogleSignIn} className='btn w-full mb-3 btn-success '><FaGoogle></FaGoogle><span className='ms-2'>Register with Google</span></button>
+             <button onClick={handleGithubSignIn} className='btn w-full btn-success'><FaGithub></FaGithub><span className='ms-2'>Register with Github</span></button>
           </div>
         </div>
     );
