@@ -8,6 +8,8 @@ import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import ChefDetails from '../pages/OurChef/ChefDetails';
 import Register from '../pages/Register/Register';
+import PrivateRoute from './PrivateRoute';
+import Blog from '../pages/Blog/Blog';
 
   const router = createBrowserRouter([
     {
@@ -28,8 +30,12 @@ import Register from '../pages/Register/Register';
         },
         {
             path: '/all-chef/:id',
-            element: <ChefDetails></ChefDetails>,
+            element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
             loader: ({params})=> fetch(`http://localhost:5000/all-chef/${params.id}`)
+        },
+        {
+          path:'/blog',
+          element: <Blog></Blog>
         }
       ]
     },

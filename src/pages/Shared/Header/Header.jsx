@@ -5,7 +5,6 @@ import { useContext } from 'react';
 
 const Header = () => {
   const {user, logOutUser} = useContext(AuthContext);
-  console.log(user);
 
   const handleLogOut = ()=>{
     logOutUser()
@@ -25,8 +24,12 @@ const Header = () => {
   </div>
   <div className="flex-none gap-2">
     <div>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/' className='mx-2'>Blog</NavLink>
+        <NavLink to='/'  className={({ isActive }) =>
+                      isActive ? "text-[#C59D5F] font-bold": ""
+                    }>Home</NavLink>
+        <NavLink to='/blog' className={({ isActive }) =>
+                      isActive ? "text-[#C59D5F] font-bold mx-2": "mx-2"
+                    } >Blog</NavLink>
        {user?
         <NavLink onClick={handleLogOut}><button className='btn bg-[#C59D5F] border-none'>Logout</button></NavLink>:
         <NavLink  to='/login'><button className='btn bg-[#C59D5F] border-none'>LogIn</button></NavLink>}

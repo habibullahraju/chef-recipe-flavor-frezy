@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../provider/authProvider/authProvider';
 
 const Login = () => {
   const [error, setError] = useState('');
   const {handleLogin} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleUseLogin = (event)=>{
     event.preventDefault();
@@ -17,11 +19,13 @@ const Login = () => {
       const loggedUser = result.user;
       console.log(loggedUser);
       setError('')
+      navigate(location?.state?.from?.pathname)
     })
     .catch(error =>{
       console.log(error);
       setError(error.message);
     })
+    form.reset()
   }
 
     return (
@@ -36,7 +40,7 @@ const Login = () => {
             <input type="text" name='email' required placeholder="Your Email" className="mb-3 input 
             input-bordered w-full  max-w-full" /> <br />
             <input type="text" name='password' required placeholder="Your Password" className="mb-3 input input-bordered w-full max-w-full " /> <br />
-            <input className='btn w-full btn-success border-none' type="submit" value="Register" />
+            <input className='btn w-full btn-success border-none' type="submit" value="Login" />
             
             </form>
             <p className='text-white text-center my-3'><span>Are you new here?</span> 
