@@ -6,7 +6,6 @@ import ChefDetailsCard from './ChefDetailsCard';
 const ChefDetails = () => {
     const chefDetails = useLoaderData();
     const {id, chefPicture,chefName, shortDescription,yearsOfExperience, numberOfRecipes, likes, cards} = chefDetails;
-    console.log(chefDetails);
     return (
         <div>
             <div className='bg-black relative'>
