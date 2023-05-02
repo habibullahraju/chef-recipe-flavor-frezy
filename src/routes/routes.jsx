@@ -7,6 +7,7 @@ import Layout from '../layout/layout';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import ChefDetails from '../pages/OurChef/ChefDetails';
+import Register from '../pages/Register/Register';
 
   const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ import ChefDetails from '../pages/OurChef/ChefDetails';
         {
             path: '/login',
             element: <Login></Login>
+        },
+        {
+          path: '/register',
+          element: <Register></Register>,
         },
         {
             path: '/all-chef/:id',

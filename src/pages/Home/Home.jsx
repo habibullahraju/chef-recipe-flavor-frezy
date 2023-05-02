@@ -1,5 +1,7 @@
 import React from 'react';
 import OurChef from '../OurChef/OurChef';
+import JoinUsBannar from '../JoinUsBannar/JoinUsBannar';
+import MessageBanner from '../MessageBanner/MessageBanner';
 
 
 const Home = () => {
@@ -14,6 +16,8 @@ const Home = () => {
             </div>
         </div>
         <OurChef></OurChef>
+        <JoinUsBannar></JoinUsBannar>
+        <MessageBanner></MessageBanner>
 
        </div>
     );
