@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 const JoinUsBannar = () => {
     return (
@@ -9,9 +10,9 @@ const JoinUsBannar = () => {
                 <h2 className='text-5xl font-bold py-10'>Let's start sharing <br /> your awesome <br /> recipes</h2>
                 <Link className='btn bg-[#C59D5F] border-none' to="/login">JOIN NOW</Link>
             </div>
-            <div>
+            <LazyLoad>
                 <img src="https://point.moxcreative.com/yumma/wp-content/uploads/sites/2/2022/04/img_1.png" alt="" />
-            </div>
+            </LazyLoad>
         </div>
     );
 };

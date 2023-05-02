@@ -1,10 +1,11 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/authProvider/authProvider';
 import { useContext } from 'react';
 
 const Header = () => {
   const {user, logOutUser} = useContext(AuthContext);
+  const [userName, setUserName] = useState('');
 
   const handleLogOut = ()=>{
     logOutUser()
@@ -16,11 +17,15 @@ const Header = () => {
       console.log(error);
     })
   }
+  const handleSeeUserName = ()=>{
+    setUserName(user?.displayName);
+  }
     return (
         <div>
+          
             <div className="navbar bg-base-100">
   <div className="flex-1">
-    <a className="btn btn-ghost normal-case text-xl">Flavor Frenzy</a>
+    <Link to="/" className="btn btn-ghost normal-case text-2xl">Flavor Frenzy</Link>
   </div>
   <div className="flex-none gap-2">
     <div>
@@ -37,12 +42,14 @@ const Header = () => {
     { user &&
       <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full ">
+        <div title={userName} onMouseOver={handleSeeUserName} className="w-10 rounded-full ">
           <img  src={user?.photoURL} />
         </div>
       </label>
-   
+      
     </div>}
+
+    
   </div>
 </div>
         </div>
