@@ -20,6 +20,7 @@ const Login = () => {
       console.log(loggedUser);
       setError('')
       navigate(location?.state?.from?.pathname)
+      
     })
     .catch(error =>{
       console.log(error);

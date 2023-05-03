@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../provider/authProvider/authProvider';
 import { updateProfile } from 'firebase/auth';
@@ -7,6 +7,7 @@ import { updateProfile } from 'firebase/auth';
 const Register = () => {
   const [error, setError ]= useState('');
   const [success,setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const {handleRegister , GoogleSignIn, githubSignIn} = useContext(AuthContext);
 
@@ -29,12 +30,14 @@ const Register = () => {
       console.log(loggedUser);
       updateUserData(result.user,name,photoURL)
       setError('')
+      navigate('/')
     })
     .catch(error =>{
       setError(error.message);
       console.log(error);
     })
     form.reset();
+    
 
 
   }
