@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import Rating from "react-rating";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaRegStar, FaStar ,FaStarHalf  } from "react-icons/fa";
 
 const ChefDetailsCard = ({card}) => {
     const {recipeName,ingredients,cookingMethod,rating} = card;
@@ -32,7 +34,17 @@ const ChefDetailsCard = ({card}) => {
               >{ingre}</li>)
             }</p>
             <p> <span className="font-semibold">Cooking Method:</span>{cookingMethod}</p>
-            <p> <span className="font-semibold">Ratings:</span> <span className="text-orange-400">{rating}</span></p>
+            <p className="flex items-center gap-2"> <span className="font-semibold">Ratings:</span> <span className="mt-1">
+            <Rating
+               placeholderRating={rating}
+               emptySymbol={<FaRegStar></FaRegStar>}
+               placeholderSymbol={<FaStar></FaStar>}
+               fullSymbol={<FaStar></FaStar>}
+               readonly
+            >
+
+            </Rating></span></p>
+           
           <div className="card-actions justify-end">
             <button disabled={false} onClick={handleAddToFavoriteBtn} className="btn bg-[#C59D5F] border-none">Add to Favorite</button>
             <ToastContainer></ToastContainer>
