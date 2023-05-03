@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaThumbsUp } from "react-icons/fa";
+import { FaThumbsUp, FaBriefcase, FaUtensils } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 
@@ -13,9 +13,9 @@ const ChefCard = ({chef}) => {
     </LazyLoad></figure>
   <div className="card-body">
     <h2 className="card-title">{chefName}</h2>
-    <p className='m-0'>Experience: {yearsOfExperience} years</p>
-    <p>Recipes: {numberOfRecipes}</p>
-    <p className='flex items-center gap-3'><span><FaThumbsUp></FaThumbsUp></span><span>{likes}</span></p>
+    <p className='m-0 flex items-center gap-2'><FaBriefcase></FaBriefcase> Experience: {yearsOfExperience} years</p>
+    <p className='flex items-center gap-2'><FaUtensils></FaUtensils> Recipes: {numberOfRecipes}</p>
+    <p className='flex items-center gap-2'><span><FaThumbsUp></FaThumbsUp></span><span>{likes}</span></p>
     <div className="card-actions justify-end">
       <Link to={`/all-chef/${id}`}  className="btn border-none bg-[#C59D5F]">View Recipe</Link>
     </div>

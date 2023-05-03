@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { FaThumbsUp } from "react-icons/fa";
+import { FaThumbsUp, FaBriefcase, FaUtensils  } from "react-icons/fa";
 import ChefDetailsCard from './ChefDetailsCard';
 
 const ChefDetails = () => {
@@ -21,8 +21,8 @@ const ChefDetails = () => {
                 <div>
                     <h2 className='text-4xl font-bold mb-4'>{chefName}</h2>
                     <p className='text-gray-600 text-lg mb-2'> <span className='font-semibold'>Description: </span>{shortDescription}</p>
-                    <p className='text-lg font-semibold text-gray-600'>Recipes: {numberOfRecipes}</p>
-                    <p  className='text-lg font-semibold text-gray-600 py-1'>Experience: {yearsOfExperience} Years</p>
+                    <p className='text-lg font-semibold text-gray-600 flex items-center gap-2'><FaUtensils></FaUtensils> Recipes: {numberOfRecipes}</p>
+                    <p  className='text-lg font-semibold text-gray-600 py-1 flex items-center gap-2'> <FaBriefcase></FaBriefcase> Experience: {yearsOfExperience} Years</p>
                     <p className='text-gray-600 flex items-center gap-3 text-lg font-semibold'><span><FaThumbsUp></FaThumbsUp></span> <span>{likes}</span></p>
                 </div>
             </div>
